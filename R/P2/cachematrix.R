@@ -48,8 +48,8 @@ cacheSolve <- function(x, ...) {
   x$setInvMtrx(m) 
 }
 
-# Test
-# generate a random square, non-singular matrix
+# Some testing here:
+# Generate a random 5x5 square, non-singular matrix
 test <- matrix(runif(25,1,100),5,5)
 # generate the makeCacheMatrix object with this matrix
 testCached <- makeCacheMatrix(test)
@@ -58,9 +58,12 @@ testCached <- makeCacheMatrix(test)
 testInv <- cacheSolve(testCached)
 testInv <- cacheSolve(testCached)
 testInv <- cacheSolve(testCached)
-test <- matrix(runif(25,1,100),5,5)
-testCached <- makeCacheMatrix(test)
 
+# Generate new matrix
+test <- matrix(runif(25,1,100),5,5)
+# generate the new makeCacheMatrix object
+testCached <- makeCacheMatrix(test)
+# and check that it's not yet cached
 testInv <- cacheSolve(testCached)
 testInv <- cacheSolve(testCached)
 
